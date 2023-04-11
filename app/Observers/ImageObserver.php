@@ -32,7 +32,7 @@ class ImageObserver
         $filePath = 'storage/'. $image->path;
         Log::info($filePath);
         if(File::exists($filePath)){
-//            File::delete($filePath);
+            File::delete($filePath);
             Log::info('deleted');
 
         }
