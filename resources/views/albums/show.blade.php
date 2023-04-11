@@ -17,18 +17,18 @@
         <div class="container">
             <div class="d-flex justify-content-end mb-4">
                 <button type="button" class="btn btn-success albums-form-btn" data-type="create">
-                    Create Albun
+                    Add Image
                 </button>
             </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach($albums as $album)
+                @foreach($images as $image)
                     <div class="col">
-                        <x-card-component :image="$album->albumCover" :album="$album" />
+                        <x-card-component :image="asset('storage/'. $image->path)"/>
                     </div>
                 @endforeach
             </div>
             <div class="my-4">
-                {{$albums->links()}}
+                {{$images->links()}}
             </div>
         </div>
     </div>

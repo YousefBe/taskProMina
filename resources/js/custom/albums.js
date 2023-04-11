@@ -3,7 +3,6 @@ import "dropzone/dist/dropzone.css";
 
 
 import toastr from 'toastr';
-toastr.success('www')
 
 let dropzoneInstance = null;
 let existingAlbumFiles = [];
@@ -31,7 +30,7 @@ const albumDropzoneOptions = {
             //handle already existing files
         }
 
-    
+
         this.on("addedfile", function (file) {
             // Create the remove button
             var removeButton = Dropzone.createElement(

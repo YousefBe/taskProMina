@@ -11,9 +11,15 @@ class CardComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+
+    public $isAlbum ;
+    public $image ;
+    public $album ;
+    public function __construct( $image ,$album=null)
     {
-        //
+        $this->isAlbum = $album ? true : false;
+        $this->album = $album;
+        $this->image = $image;
     }
 
     /**

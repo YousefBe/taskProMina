@@ -22,3 +22,20 @@
 .c-pointer{
     cursor: pointer;
 }
+
+.custom-card-image{
+    height: 350px;
+    object-fit: cover;
+}
+
+.album-link{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #506b93;
+    text-transform: capitalize;
+}
+.album-link:hover{
+    color: #2d3748;
+}

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
    public function index()
    {
-    $albums = [1,2,3,4,5];
+    $albums = Album::paginate(2);
     return view('welcome' , compact('albums'));
    }
 }

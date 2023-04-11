@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use function compact;
+use function dd;
+use function view;
 
 class AlbumController extends Controller
 {
@@ -38,7 +41,8 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        $images = $album->images()->paginate(5);
+        return view('albums.show', compact('album' , 'images'));
     }
 
     /**
