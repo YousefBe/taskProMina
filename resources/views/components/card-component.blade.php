@@ -5,7 +5,9 @@
         @if($isAlbum)
             <div class="d-flex justify-content-between align-items-center">
                 <a href="{{route('albums.show',$album->id)}}" class="album-link">{{$album->name}}</a>
-                <i class="fa-solid fa-trash ms-2 c-pointer text-danger"></i>
+                <button class="btn delete-album-btn" data-album="{{$album->id}}">
+                    <i class="fa-solid fa-trash ms-2 c-pointer text-danger"></i>
+                </button>
             </div>
         @else
             <div class="d-flex justify-content-between align-items-center">

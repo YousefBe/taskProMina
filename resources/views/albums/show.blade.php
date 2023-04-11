@@ -8,7 +8,7 @@
                     <p class="h3">Album : {{$album->name}} </p>
                     <p class="h5">Images Count : {{$imagesCount}} </p>
                 </div>
-                <button type="button" class="btn btn-primary albums-form-btn mx-2" data-album="{{$album}}" data-type="update">
+                <button type="button" class="btn align-self-center btn-primary albums-form-btn mx-2" data-album="{{$album}}" data-type="update">
                     Edit Album
                 </button>
             </div>
@@ -19,7 +19,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="my-4">
+            <div class="my-4 d-flex justify-content-center">
                 {{$images->links()}}
             </div>
         </div>

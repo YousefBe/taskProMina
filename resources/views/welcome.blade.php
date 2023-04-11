@@ -33,6 +33,7 @@
         </div>
     </div>
     <x-album-modal-component></x-album-modal-component>
+    <x-delete-album-modal-component></x-delete-album-modal-component>
     </main>
 @endsection
 @push('scripts')
