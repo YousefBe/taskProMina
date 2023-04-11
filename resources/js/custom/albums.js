@@ -3,6 +3,7 @@ import "dropzone/dist/dropzone.css";
 
 
 import toastr from 'toastr';
+import Swal from 'sweetalert2'
 
 let dropzoneInstance = null;
 let existingAlbumFiles = [];
@@ -52,12 +53,19 @@ const albumDropzoneOptions = {
         });
 
         this.on("successmultiple", function (file, response) {
-            console.log(response);
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setTimeout(()=>{
+                location.reload()
+            },1500)
         });
 
         this.on("error", function (file, responseText) {
-            console.log("laa 8alaat")
-            console.log(responseText)
+            toastr.error("please provide a name for your album")
         });
 
         this.on("queuecomplete", function () {
@@ -68,7 +76,6 @@ const albumDropzoneOptions = {
 
 submitButton.addEventListener("click", function () {
     if(dropzoneInstance && dropzoneInstance.getQueuedFiles().length !== 0){
-        console.log("w")
         dropzoneInstance.processQueue();
     }else{
         var blob = new Blob();

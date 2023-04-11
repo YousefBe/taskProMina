@@ -12,7 +12,8 @@ class Album extends Model
     use HasFactory;
 
     protected $appends = [
-        'albumCover'
+        'albumCover',
+        'imagesCount',
     ];
     protected $fillable = [
         'name',
@@ -31,5 +32,10 @@ class Album extends Model
             return asset('storage/' . $this->images()->first()->path);
         }
         return 'https://ionicframework.com/docs/img/demos/thumbnail.svg';
+    }
+
+    public function getImagesCountAttribute()
+    {
+        return $this->images()->count();
     }
 }

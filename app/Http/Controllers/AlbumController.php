@@ -96,13 +96,15 @@ class AlbumController extends Controller
     private function handleRequestFiles($request  , $album)
     {
         foreach ($request->file as $file){
-            $filePath = $file->storePublicly('images', 'public');
-            $fileName = $file->getClientOriginalName();
-            $album->images()->create([
-                'name'=>$fileName ,
-                'path'=>$filePath,
-                'album_id'=>$album->id
-            ]);
+            if($file->getSize()){
+                $filePath = $file->storePublicly('images', 'public');
+                $fileName = $file->getClientOriginalName();
+                $album->images()->create([
+                    'name'=>$fileName ,
+                    'path'=>$filePath,
+                    'album_id'=>$album->id
+                ]);
+            }
         }
     }
 }

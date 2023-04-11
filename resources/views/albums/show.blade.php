@@ -29,5 +29,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/custom/single-album.js'])
+    @vite(['resources/js/custom/single-image.js'])
 @endpush

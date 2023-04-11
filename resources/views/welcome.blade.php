@@ -35,3 +35,6 @@
     <x-album-modal-component></x-album-modal-component>
     </main>
 @endsection
+@push('scripts')
+    @vite(['resources/js/custom/single-album.js'])
+@endpush
