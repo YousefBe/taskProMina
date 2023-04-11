@@ -29,7 +29,7 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        Log::info('created');
+        Log::info($request->all());
         return 'www';
     }
 

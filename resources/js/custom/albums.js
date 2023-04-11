@@ -44,11 +44,10 @@ const albumDropzoneOptions = {
         });
 
         this.on("sendingmultiple", function (data, xhr, formData) {
-            console.log(formData);
-            console.log(data);
+            formData.append('albumName' ,albumTitleInput.value)
         });
 
-        this.on("success", function (file, response) {
+        this.on("successmultiple", function (file, response) {
             console.log(response);
         });
 
