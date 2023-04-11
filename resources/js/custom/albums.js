@@ -1,6 +1,10 @@
 import Dropzone from "dropzone";
 import "dropzone/dist/dropzone.css";
 
+
+import toastr from 'toastr';
+toastr.success('www')
+
 let dropzoneInstance = null;
 let existingAlbumFiles = [];
 
