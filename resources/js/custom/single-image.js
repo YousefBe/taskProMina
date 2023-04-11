@@ -10,7 +10,7 @@ Array.from(deleteImgBtns).forEach((btn)=>{
         const deleteAlbumUrl ='/images/' + imageId;
         console.log(deleteAlbumUrl)
         Swal.fire({
-            title: 'Do you want to save the changes?',
+            title: 'Are You Sure you want to delete this image ?',
             showCancelButton: true,
             confirmButtonText: 'Delete',
         }).then((result) => {
