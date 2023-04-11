@@ -47,11 +47,17 @@ const albumDropzoneOptions = {
         });
 
         this.on("sendingmultiple", function (data, xhr, formData) {
+            console.log("sending")
             formData.append('albumName' ,albumTitleInput.value)
         });
 
         this.on("successmultiple", function (file, response) {
             console.log(response);
+        });
+
+        this.on("error", function (file, responseText) {
+            console.log("laa 8alaat")
+            console.log(responseText)
         });
 
         this.on("queuecomplete", function () {
@@ -62,6 +68,7 @@ const albumDropzoneOptions = {
 
 submitButton.addEventListener("click", function () {
     if(dropzoneInstance && dropzoneInstance.getQueuedFiles().length !== 0){
+        console.log("w")
         dropzoneInstance.processQueue();
     }else{
         var blob = new Blob();
@@ -78,14 +85,18 @@ function btnClickHandler(e) {
     //create or update
     const mode = e.target.closest("button").dataset.type;
     const selectedAlbum = e.target.closest("button").dataset.album;
+    let albumObject ={};
+    if (selectedAlbum){
+        albumObject = JSON.parse(selectedAlbum)
+        console.log(albumObject);
+    }
     console.log(mode);
-    console.log(selectedAlbum);
     if (mode === "create") {
         albumDropzoneOptions.url = "/albums";
         existingAlbumFiles = [];
     } else {
-        albumDropzoneOptions.url = "/albums";
-        existingAlbumFiles.push(1);
+        albumTitleInput.value = albumObject.name
+        albumDropzoneOptions.url = "/albums/" + albumObject.id;
     }
     let myDropzone = new Dropzone("#my-dropzone", albumDropzoneOptions);
     dropzoneInstance = myDropzone;

@@ -15,11 +15,13 @@ class CardComponent extends Component
     public $isAlbum ;
     public $image ;
     public $album ;
-    public function __construct( $image ,$album=null)
+    public $imageData ;
+    public function __construct( $image ,$album=null  , $imageData= null)
     {
         $this->isAlbum = $album ? true : false;
         $this->album = $album;
         $this->image = $image;
+        $this->imageData = $imageData;
     }
 
     /**

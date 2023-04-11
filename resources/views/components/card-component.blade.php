@@ -8,8 +8,11 @@
                 <i class="fa-solid fa-trash ms-2 c-pointer text-danger"></i>
             </div>
         @else
-            <div class="d-flex justify-content-end align-items-center">
-                <i class="fa-solid fa-trash ms-2 c-pointer text-danger"></i>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="h4">{{$imageData->name}}</p>
+               <button class="btn delete-img-btn" data-image="{{$imageData->id}}">
+                   <i class="fa-solid fa-trash ms-2 c-pointer text-danger"></i>
+               </button>
             </div>
         @endif
     </div>

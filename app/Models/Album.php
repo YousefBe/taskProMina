@@ -10,7 +10,8 @@ use function public_path;
 class Album extends Model
 {
     use HasFactory;
-    protected $appends =[
+
+    protected $appends = [
         'albumCover'
     ];
     protected $fillable = [
@@ -26,6 +27,9 @@ class Album extends Model
 
     public function getAlbumCoverAttribute()
     {
-        return asset('storage/'.$this->images()->first()->path);
+        if ($this->images()->first()) {
+            return asset('storage/' . $this->images()->first()->path);
+        }
+        return 'https://ionicframework.com/docs/img/demos/thumbnail.svg';
     }
 }

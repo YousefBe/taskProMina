@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class , 'index'])->name('home');
-Route::resource('/albums' , AlbumController::class );
+Route::get('/',function (){
+    return redirect()->route('albums.index');
+})->name('home');
+Route::resource('/albums' , AlbumController::class )->except(['update']);
+Route::resource('/images' , ImageController::class );
+Route::post('/albums/{album}' , [AlbumController::class , 'update']);
